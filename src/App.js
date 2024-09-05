@@ -1,5 +1,8 @@
 import Pagina from "./componentes/layouts/Pagina";
 import TelaCliente from "./componentes/layouts/TelaCadastro/TelaCliente";
+import TelaCategoria from "./componentes/layouts/TelaCadastro/TelaCategoria";
+import TelaFornecedor from "./componentes/layouts/TelaCadastro/TelaFornecedor";
+import TelaUsuario from "./componentes/layouts/TelaCadastro/TelaUsuario";
 function App() {
   return (
     <div className="App">
@@ -11,20 +14,20 @@ function App() {
         </Pagina>
       
         <Pagina>
-          <h1>Esta é a página de cadastro de produto</h1>
-
+          <h1>Esta é a página de cadastro de usuario</h1>
+          <TelaUsuario/>
           <br></br>
         </Pagina>
 
         <Pagina>
           <h1>Esta é a página de cadastro de fornecedores</h1>
-
+          <TelaFornecedor/>
           <br></br>
         </Pagina>
 
         <Pagina>
           <h1>Esta é a página de cadastro de categorias</h1>
-
+          <TelaCategoria/>
           <br></br>
         </Pagina>
       </div>
