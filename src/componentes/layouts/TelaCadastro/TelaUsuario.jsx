@@ -1,8 +1,14 @@
 import FormUsuario from "./Formularios/Usuario"
-export default function TelaUsuario(props){
-    return(
-      
-        <FormUsuario/>
-        
+import Pagina from "../Pagina"
+import { Container } from "react-bootstrap"
+export default function TelaUsuario(props) {
+    return (
+
+        <Container>
+            <Pagina>
+                <FormUsuario />
+            </Pagina>
+        </Container>
+
     )
 }

@@ -1,25 +1,25 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-export default function FormClientes(props){
+export default function FormProduto(props){
    
         return (
             <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Nome</Form.Label>
-              <Form.Control type="nome" placeholder="Digite seu nome" />
+              <Form.Label>Codigo</Form.Label>
+              <Form.Control type="codigo" placeholder="Digite seu codigo" />
             </Form.Group>
       
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>CPF</Form.Label>
-              <Form.Control type="cpf" placeholder="Digite seu CPF" />
+              <Form.Label>Descrição</Form.Label>
+              <Form.Control type="descricao" placeholder="Digite uma descrição" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>CEP</Form.Label>
-              <Form.Control type="cep" placeholder="Digite seu CEP" />
+              <Form.Label>Quantidade</Form.Label>
+              <Form.Control type="quantidade" placeholder="Digite uma quantidade" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Telefone</Form.Label>
-              <Form.Control type="telefone" placeholder="Digite seu " />
+              <Form.Label>Valor</Form.Label>
+              <Form.Control type="valor" placeholder="Digite um valor" />
             </Form.Group>
             <Button variant="primary" type="submit">
             Cadastrar

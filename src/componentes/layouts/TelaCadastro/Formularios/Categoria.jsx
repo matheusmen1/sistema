@@ -18,7 +18,7 @@ export default function FormCategoria(props){
               <Form.Control type="cep" placeholder="Digite um tipo" />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+              Cadastrar
             </Button>
           </Form>
         );

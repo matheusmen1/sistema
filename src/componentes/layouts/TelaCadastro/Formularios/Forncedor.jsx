@@ -22,7 +22,7 @@ export default function FormFornecedor(props){
               <Form.Control type="telefone" placeholder="Digite seu " />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+            Cadastrar
             </Button>
           </Form>
         );

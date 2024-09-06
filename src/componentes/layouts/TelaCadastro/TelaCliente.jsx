@@ -1,8 +1,13 @@
 import FormClientes from "./Formularios/Clientes";
+import Pagina from "../Pagina";
+import { Container } from "react-bootstrap";
 export default function TelaCliente(props){
     return(
-      
-        <FormClientes/>
+      <Container>
+        <Pagina>
+            <FormClientes/>
+        </Pagina>
+      </Container>
         
     )
 }

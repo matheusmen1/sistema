@@ -14,7 +14,7 @@ export default function FormUsuario(props){
               <Form.Control type="cpf" placeholder="Digite sua senha" />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+            Cadastrar
             </Button>
           </Form>
         );

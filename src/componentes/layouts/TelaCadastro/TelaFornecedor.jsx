@@ -1,7 +1,13 @@
 import FormFornecedor from "./Formularios/Forncedor";
+import Pagina from "../Pagina";
+import { Container } from "react-bootstrap";
 export default function TelaFornecedor(props){
 
     return (
-        <FormFornecedor/>
+        <Container>
+         <Pagina>
+            <FormFornecedor/>
+         </Pagina>
+        </Container>
     )
 }
