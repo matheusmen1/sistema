@@ -1,4 +1,6 @@
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 export default function FormProduto(props){
    
@@ -21,9 +23,16 @@ export default function FormProduto(props){
               <Form.Label>Valor</Form.Label>
               <Form.Control type="valor" placeholder="Digite um valor" />
             </Form.Group>
-            <Button variant="primary" type="submit">
-            Cadastrar
-            </Button>
+            <Row className='mt-2 mb-2'>
+              <Col md={1} className ='mr-2'>
+                <Button>Confirmar</Button>
+              </Col>
+              <Col md={{offset:1}}>
+                <Button onClick={()=>{
+                  props.setExibirTabela(true);
+                }}>Voltar</Button>
+              </Col>
+            </Row>
           </Form>
         );
 
