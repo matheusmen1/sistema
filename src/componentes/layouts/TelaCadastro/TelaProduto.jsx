@@ -14,7 +14,8 @@ export default function TelaProduto(props) {
                        Cadastro de Produto 
                     </h2>
                 </Alert>
-                {exibirTabela ? <TabelaProdutos listaDeProdutos={produtos} setExibirTabela={setExibirTabela} /> : <FormProduto setExibirTabela={setExibirTabela}/>} 
+                {exibirTabela ? <TabelaProdutos listaDeProdutos={produtos} setExibirTabela={setExibirTabela} /> :
+                                <FormProduto setExibirTabela={setExibirTabela}/>} 
 
             </Pagina>
         </Container>
