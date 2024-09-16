@@ -15,14 +15,14 @@ export default function FormProduto(props) {
     validade:""
   });
   const [formValidado, setFormValidado] = useState(false);
-  function manipularSubmissao() {
+  function manipularSubmissao(evento) {
 
     const form = evento.currentTarget;
     if (form.checkValidity()) {
       //cadastrar o produto
       props.listaDeProdutos.push(produto);
       //exibir tabela com o produto incluido
-      props.setExibirTabela
+      props.setExibirTabela(true);
     }
     else {
       setFormValidado(true);
@@ -32,8 +32,7 @@ export default function FormProduto(props) {
   }
 
   function manipularMudanca(evento) {
-    const novoProduto = {};
-    novoProduto["codigo"] = produto.codigo;
+    
     const elemento = evento.target.name;
     const valor = evento.target.value;
     setProduto({...produto, [elemento]: valor });
