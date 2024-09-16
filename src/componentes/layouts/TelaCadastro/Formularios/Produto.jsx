@@ -20,7 +20,7 @@ export default function FormProduto(props) {
     const form = evento.currentTarget;
     if (form.checkValidity()) {
       //cadastrar o produto
-      props.listaDeProdutos.push(produto);
+      props.setListaDeProdutos([...props.listaDeProdutos, produto]);
       //exibir tabela com o produto incluido
       props.setExibirTabela(true);
     }
