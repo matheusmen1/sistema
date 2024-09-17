@@ -38,7 +38,7 @@ export default function FormProduto(props) {
     setProduto({...produto, [elemento]: valor });
   }
   return (
-    <Form novalidate validated={formValidado} onSubmit={manipularSubmissao}>
+    <Form noValidate validated={formValidado} onSubmit={manipularSubmissao}>
       <Row className="mb-4">
         <Form.Group as={Col} md="4">
           <Form.Label>Código</Form.Label>

@@ -4,17 +4,17 @@ export default function TabelaProdutos(props) {
 
     function excluirProduto(produto) {
         if(window.confirm("Deseja realmente excluir o produto "+produto.codigo)){
-            /*props.setListaDeProdutos(props.listaDeProdutos.filter((item)=>{
+            props.setListaDeProdutos(props.listaDeProdutos.filter((item)=>{
                 return item.codigo != produto.codigo
-            }));*/
-            let novaLista = [];
+            }));
+            /*let novaLista = [];
             for (let i = 0; i < props.listaDeProdutos.lenght; i++)
             {
                 if(props.listaDeProdutos[i].codigo != produto.codigo){
                     novaLista.push(props.listaDeProdutos[i]);
                 }
             }
-            props.setListaDeProdutos(novaLista);
+            props.setListaDeProdutos(novaLista);*/
         }
     }
     return (

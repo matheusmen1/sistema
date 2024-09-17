@@ -6,6 +6,7 @@ import TabelaProdutos from "./Tabelas/TabelaProdutos";
 import { produtos } from "../../../dados/mockProdutos";
 export default function TelaProduto(props) {
     const [exibirTabela, setExibirTabela] = useState(true);
+    const [listaDeProdutos, setListaDeProdutos] = useState(produtos);
     return (
         <Container>
             <Pagina>
@@ -14,8 +15,8 @@ export default function TelaProduto(props) {
                        Cadastro de Produto 
                     </h2>
                 </Alert>
-                {exibirTabela ? <TabelaProdutos listaDeProdutos={produtos} setExibirTabela={setExibirTabela} /> :
-                                <FormProduto setExibirTabela={setExibirTabela}/>} 
+                {exibirTabela ? <TabelaProdutos listaDeProdutos={listaDeProdutos} setListaDeProdutos={setListaDeProdutos} setExibirTabela={setExibirTabela} /> :
+                        <FormProduto listaDeProdutos={listaDeProdutos} setListaDeProdutos={setListaDeProdutos} setExibirTabela={setExibirTabela} />}
 
             </Pagina>
         </Container>
