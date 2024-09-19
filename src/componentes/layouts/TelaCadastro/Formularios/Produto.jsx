@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { InputGroup } from 'react-bootstrap';
 export default function FormProduto(props) {
   const [produto, setProduto] = useState({
@@ -14,14 +14,39 @@ export default function FormProduto(props) {
     urlImagem: "",
     validade:""
   });
+  function limparFormulario(){
+    setProduto({codigo: 0,
+      descricao: "",
+      precoCusto: 0,
+      precoVenda: 0,
+      qtdEstoque: 0,
+      urlImagem: "",
+      validade:""});
+
+  }
   const [formValidado, setFormValidado] = useState(false);
+  useEffect(() => {
+    if (props.produtoSelecionado) {
+      setProduto(props.produtoSelecionado); 
+    }
+  }, [props.produtoSelecionado]);
   function manipularSubmissao(evento) {
 
     const form = evento.currentTarget;
     if (form.checkValidity()) {
-      //cadastrar o produto
-      props.setListaDeProdutos([...props.listaDeProdutos, produto]);
+      if (props.produtoSelecionado){ // verifica se o alterar foi selecionado pelo usuario, em caso true
+        const listaAtualizada = props.listaDeProdutos.map((item) =>{  // aqui ele está iterando toda a lista de produto na listaAtualizada, atraves da função .map
+          return item.codigo === produto.codigo ? produto : item // aqui está verificando se o codigo existe, quando achar, ele substitui no mesmo codigo com as alterações
+        });
+        props.setListaDeProdutos(listaAtualizada); // aqui ele atualiza o estado da lista, depois de ser alterada
+      }
+      else{// adiciona um novo produto
+        //cadastrar o produto
+       props.setListaDeProdutos([...props.listaDeProdutos, produto]);
       //exibir tabela com o produto incluido
+        
+      }
+      limparFormulario();
       props.setExibirTabela(true);
     }
     else {
@@ -49,6 +74,7 @@ export default function FormProduto(props) {
             name="codigo"
             value={produto.codigo}
             onChange={manipularMudanca}
+            disabled ={props.produtoSelecionado} // quando o estado for true ou readOnly={props.produtoSelecionado} 
           />
           <Form.Control.Feedback type='invalid'>Por favor, informe o código do produto!</Form.Control.Feedback>
         </Form.Group>
