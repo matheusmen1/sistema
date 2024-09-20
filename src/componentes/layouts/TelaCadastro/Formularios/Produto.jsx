@@ -29,6 +29,7 @@ export default function FormProduto(props) {
     if (props.produtoSelecionado) {
       setProduto(props.produtoSelecionado); 
     }
+    
   }, [props.produtoSelecionado]);
   function manipularSubmissao(evento) {
 

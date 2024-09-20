@@ -5,7 +5,7 @@ export default function TabelaProdutos(props) {
     function excluirProduto(produto) {
         if(window.confirm("Deseja realmente excluir o produto "+produto.codigo)){
             props.setListaDeProdutos(props.listaDeProdutos.filter((item)=>{
-                return item.codigo != produto.codigo
+                return item.codigo !== produto.codigo
             }));
             /*let novaLista = [];
             for (let i = 0; i < props.listaDeProdutos.lenght; i++)
@@ -25,6 +25,7 @@ export default function TabelaProdutos(props) {
         <Container>
             <Button className="mb-3" variant="primary"
                 onClick={() => {
+                    props.setProdutoSelecionado(false);
                     props.setExibirTabela(false);
                 }}>
                 Adicionar
