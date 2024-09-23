@@ -5,41 +5,35 @@ import Form from 'react-bootstrap/Form';
 import { useState, useEffect } from 'react';
 import { InputGroup } from 'react-bootstrap';
 export default function FormProduto(props) {
-  const [produto, setProduto] = useState({
-    codigo: 0,
-    descricao: "",
-    precoCusto: 0,
-    precoVenda: 0,
-    qtdEstoque: 0,
-    urlImagem: "",
-    validade:""
-  });
-  function limparFormulario(){
-    setProduto({codigo: 0,
-      descricao: "",
-      precoCusto: 0,
-      precoVenda: 0,
-      qtdEstoque: 0,
-      urlImagem: "",
-      validade:""});
-
-  }
+  const [produto, setProduto] = useState(props.produtoSelecionado); // extrai essas informações da telaProduto 
   const [formValidado, setFormValidado] = useState(false);
-  useEffect(() => {
-    if (props.produtoSelecionado) {
-      setProduto(props.produtoSelecionado); 
-    }
-    
-  }, [props.produtoSelecionado]);
   function manipularSubmissao(evento) {
 
     const form = evento.currentTarget;
     if (form.checkValidity()) {
-      if (props.produtoSelecionado){ // verifica se o alterar foi selecionado pelo usuario, em caso true
-        const listaAtualizada = props.listaDeProdutos.map((item) =>{  // aqui ele está iterando toda a lista de produto na listaAtualizada, atraves da função .map
+      if (props.modoEdicao == true){ // verifica se o alterar foi selecionado pelo usuario, em caso true
+        // meu codigo
+        /*const listaAtualizada = props.listaDeProdutos.map((item) =>{  // aqui ele está iterando toda a lista de produto na listaAtualizada, atraves da função .map
           return item.codigo === produto.codigo ? produto : item // aqui está verificando se o codigo existe, quando achar, ele substitui no mesmo codigo com as alterações
         });
-        props.setListaDeProdutos(listaAtualizada); // aqui ele atualiza o estado da lista, depois de ser alterada
+        props.setListaDeProdutos(listaAtualizada);*/ // aqui ele atualiza o estado da lista, depois de ser alterada
+        // codigo professor
+        props.setListaDeProdutos(props.listaDeProdutos.map((item) => {
+          if (item.codigo !== produto.codigo)
+              return item
+          else
+              return produto
+         }));
+        props.setModoEdicao(false);
+        props.setProdutoSelecionado({codigo: 0,
+          descricao: "",
+          precoCusto: 0,
+          precoVenda: 0,
+          qtdEstoque: 0,
+          urlImagem: "",
+          validade:""});
+          props.setExibirTabela(true);
+        
       }
       else{// adiciona um novo produto
         //cadastrar o produto
@@ -47,7 +41,6 @@ export default function FormProduto(props) {
       //exibir tabela com o produto incluido
         
       }
-      limparFormulario();
       props.setExibirTabela(true);
     }
     else {
@@ -75,7 +68,7 @@ export default function FormProduto(props) {
             name="codigo"
             value={produto.codigo}
             onChange={manipularMudanca}
-            disabled ={props.produtoSelecionado} // quando o estado for true ou readOnly={props.produtoSelecionado} 
+            disabled ={props.modoEdicao} // quando o estado for true ou readOnly={props.modoEdicao} 
           />
           <Form.Control.Feedback type='invalid'>Por favor, informe o código do produto!</Form.Control.Feedback>
         </Form.Group>
@@ -177,7 +170,7 @@ export default function FormProduto(props) {
       </Row>
       <Row className='mt-2 mb-2'>
         <Col md={1} className='mr-2'>
-          <Button type="submit">Confirmar</Button>
+          <Button type="submit">{props.modoEdicao ? "Alterar":"Confirmar"}</Button>
         </Col>
         <Col md={{ offset: 1 }}>
           <Button onClick={() => {

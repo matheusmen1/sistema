@@ -7,8 +7,16 @@ import { produtos } from "../../../dados/mockProdutos";
 export default function TelaProduto(props) {
     const [exibirTabela, setExibirTabela] = useState(true);
     const [listaDeProdutos, setListaDeProdutos] = useState(produtos);
-    const [produtoSelecionado, setProdutoSelecionado] = useState(false);
-
+    const [produtoSelecionado, setProdutoSelecionado] = useState({
+        codigo: 0,
+        descricao: "",
+        precoCusto: 0,
+        precoVenda: 0,
+        qtdEstoque: 0,
+        urlImagem: "",
+        validade:""});
+    const [modoEdicao, setModoEdicao] = useState(false);
+    // os componentes passam a conhecer as "informações"
     return (
         <Container>
             <Pagina>
@@ -17,8 +25,8 @@ export default function TelaProduto(props) {
                        Cadastro de Produto 
                     </h2>
                 </Alert>
-                {exibirTabela ? <TabelaProdutos listaDeProdutos={listaDeProdutos} setListaDeProdutos={setListaDeProdutos} setExibirTabela={setExibirTabela} setProdutoSelecionado={setProdutoSelecionado}/> :
-                        <FormProduto listaDeProdutos={listaDeProdutos} setListaDeProdutos={setListaDeProdutos} setExibirTabela={setExibirTabela} produtoSelecionado={produtoSelecionado}/>}
+                {exibirTabela ? <TabelaProdutos listaDeProdutos={listaDeProdutos} setListaDeProdutos={setListaDeProdutos} setExibirTabela={setExibirTabela} setProdutoSelecionado={setProdutoSelecionado} setModoEdicao={setModoEdicao}/> :
+                        <FormProduto listaDeProdutos={listaDeProdutos} setListaDeProdutos={setListaDeProdutos} setExibirTabela={setExibirTabela} produtoSelecionado={produtoSelecionado} modoEdicao={modoEdicao} setModoEdicao={setModoEdicao}/>} 
 
             </Pagina>
         </Container>
