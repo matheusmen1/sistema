@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { InputGroup } from 'react-bootstrap';
 export default function FormProduto(props) {
   const [produto, setProduto] = useState(props.produtoSelecionado); // extrai essas informações da telaProduto 
@@ -11,7 +11,7 @@ export default function FormProduto(props) {
 
     const form = evento.currentTarget;
     if (form.checkValidity()) {
-      if (props.modoEdicao == true){ // verifica se o alterar foi selecionado pelo usuario, em caso true
+      if (props.modoEdicao){ // verifica se o alterar foi selecionado pelo usuario, em caso true
         // meu codigo
         /*const listaAtualizada = props.listaDeProdutos.map((item) =>{  // aqui ele está iterando toda a lista de produto na listaAtualizada, atraves da função .map
           return item.codigo === produto.codigo ? produto : item // aqui está verificando se o codigo existe, quando achar, ele substitui no mesmo codigo com as alterações
@@ -38,10 +38,11 @@ export default function FormProduto(props) {
       else{// adiciona um novo produto
         //cadastrar o produto
        props.setListaDeProdutos([...props.listaDeProdutos, produto]);
+       props.setExibirTabela(true);
       //exibir tabela com o produto incluido
         
       }
-      props.setExibirTabela(true);
+      
     }
     else {
       setFormValidado(true);

@@ -26,7 +26,7 @@ export default function TelaProduto(props) {
                     </h2>
                 </Alert>
                 {exibirTabela ? <TabelaProdutos listaDeProdutos={listaDeProdutos} setListaDeProdutos={setListaDeProdutos} setExibirTabela={setExibirTabela} setProdutoSelecionado={setProdutoSelecionado} setModoEdicao={setModoEdicao}/> :
-                        <FormProduto listaDeProdutos={listaDeProdutos} setListaDeProdutos={setListaDeProdutos} setExibirTabela={setExibirTabela} produtoSelecionado={produtoSelecionado} modoEdicao={modoEdicao} setModoEdicao={setModoEdicao}/>} 
+                        <FormProduto listaDeProdutos={listaDeProdutos} setListaDeProdutos={setListaDeProdutos} setExibirTabela={setExibirTabela} setProdutoSelecionado={setProdutoSelecionado} produtoSelecionado={produtoSelecionado} modoEdicao={modoEdicao} setModoEdicao={setModoEdicao}/>} 
 
             </Pagina>
         </Container>
