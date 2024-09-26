@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/matheusmen1/BCCLP2Prova1B.git/static/css/main.d221dc40.css",
+    "main.js": "/matheusmen1/BCCLP2Prova1B.git/static/js/main.b78f59fb.js",
+    "index.html": "/matheusmen1/BCCLP2Prova1B.git/index.html",
+    "main.d221dc40.css.map": "/matheusmen1/BCCLP2Prova1B.git/static/css/main.d221dc40.css.map",
+    "main.b78f59fb.js.map": "/matheusmen1/BCCLP2Prova1B.git/static/js/main.b78f59fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d221dc40.css",
+    "static/js/main.b78f59fb.js"
+  ]
+}
